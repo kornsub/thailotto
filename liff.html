@@ -14,7 +14,7 @@
   <p id="statusMessage"></p>
   <p id="getDecodedIDToken"></p>
   <script src="https://static.line-scdn.net/liff/edge/versions/2.9.0/sdk.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
     function getInfo(){
       $.post("http://119.59.98.80/thailotto/", {"post_action":"member_info"}, function(data, status){
@@ -35,6 +35,7 @@
     liff.init({ liffId: "1656017358-peBY94E0" }, () => {
       if (liff.isLoggedIn()) {
         runApp();
+        getInfo();
       } else {
         liff.login();
       }
