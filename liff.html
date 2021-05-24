@@ -8,6 +8,7 @@
   </style>
 </head>
 <body>
+  <h1>Head</h1>
   <img id="pictureUrl" width="25%">
   <p id="userId"></p>
   <p id="displayName"></p>
@@ -37,7 +38,6 @@
     liff.init({ liffId: "1656017358-peBY94E0" }, () => {
       if (liff.isLoggedIn()) {
         runApp();
-        getInfo();
       } else {
         liff.login();
       }
