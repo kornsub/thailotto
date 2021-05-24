@@ -13,11 +13,9 @@
     .flex-container {
       display: flex;
       flex-direction: column;
-      background-color: DodgerBlue;
     }
 
     .flex-container > div {
-      background-color: #f1f1f1;
       text-align: center;
     }
     .topheader a{
@@ -83,9 +81,9 @@
   height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
+  z-index: 2; /* Stay on top */
   top: 0;
-  left: 0;
+  right: 0;
   background-color: #111; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
@@ -111,9 +109,29 @@
 .sidebar .closebtn {
   position: absolute;
   top: 0;
-  right: 25px;
+  left: 25px;
   font-size: 36px;
-  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.input {
+  font-size: 16px;
+  padding: 0.25em 0.5em;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+ }
+
+ .button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 4px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
 }
   </style>
 </head>
@@ -143,11 +161,24 @@
 		
 	</div>
 
-    <div>
-      <img id="lotto_s1" src="images/lotto_s1.png">
+	<div style="padding-top: 50px;">
+		<div>
+			<label for="text-input">ใส่เลข 2 ตัว 3 ตัว หรือ 6 ตัวได้เลยจ้า</label>
+		</div>
+		<div style="display: flex; justify-content: center;">
+			<input class="input" id="numberInput" type="number" maxlength="6" />
+			<button class="button" onclick="findLotto()">
+				<i class="fa fa-search"></i> ค้นหา
+			</button>
+		</div>
+		<div>
+			<span id="errorMsg" style="color: red;"></span>
+		</div>
+	</div>
+    <div style="padding-top: 50px; padding-bottom: 20px;">
+      <img id="lotto_img" src="images/lotto_s1.png">
     </div>
-    <div>2</div>
-    <div>3</div>  
+
   </div>
   
   <img id="pictureUrl" width="25%">
@@ -158,6 +189,18 @@
   <script src="https://static.line-scdn.net/liff/edge/versions/2.9.0/sdk.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
+  	function findLotto(){
+  		var numbers = /^[0-9]+$/;
+  		var inputNumber =  document.getElementById("numberInput").value;
+  		console.log("inputNumber "+inputNumber);
+
+  		if(inputNumber.match(numbers)){
+			alert('Your Registration number has accepted....');
+		}else{
+			document.getElementById("numberInput").value = "";
+			alert('Please input numeric characters only');
+		}
+  	}
   	function myFunction() {
 		var x = document.getElementById("myLinks");
 		if (x.style.display === "block") {
@@ -168,13 +211,11 @@
 	}
 	function openNav() {
 	  document.getElementById("mySidebar").style.width = "200px";
-	  document.getElementById("main").style.marginLeft = "200px";
 	}
 
 	/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
 	function closeNav() {
 	  document.getElementById("mySidebar").style.width = "0";
-	  document.getElementById("main").style.marginLeft = "0";
 	}
     function getInfo(){
       /*
