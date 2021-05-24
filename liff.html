@@ -5,11 +5,28 @@
   <title>My LIFF v2</title>
   <style>
     #pictureUrl { display: block; margin: 0 auto }
+    .flex-container {
+      display: flex;
+      flex-direction: column;
+      background-color: DodgerBlue;
+    }
+
+    .flex-container > div {
+      background-color: #f1f1f1;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
+  <div class="flex-container">
+    <div>
+      <img id="lotto_s1" width="100%" src="lotto_s1.png">
+    </div>
+    <div>2</div>
+    <div>3</div>  
+  </div>
   <h1>Head</h1>
-  <img id="lotto_s1" width="100%" src="lotto_s1.png">
+  
   <img id="pictureUrl" width="25%">
   <p id="userId"></p>
   <p id="displayName"></p>
