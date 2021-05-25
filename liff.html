@@ -161,6 +161,9 @@
 		
 	</div>
 
+	<div style="padding-top: 20px;">
+      <img src="images/lotto_logo.png">
+    </div>
 	<div style="padding-top: 50px;">
 		<div>
 			<label for="text-input">ใส่เลข 2 ตัว 3 ตัว หรือ 6 ตัวได้เลยจ้า</label>
@@ -176,7 +179,7 @@
 		</div>
 	</div>
     <div style="padding-top: 50px; padding-bottom: 20px;">
-      <img id="lotto_img" src="lotto_s1.png">
+      <img id="lotto_img" src="images/lotto_s1.png">
     </div>
 
   </div>
@@ -195,10 +198,11 @@
   		console.log("inputNumber "+inputNumber);
 
   		if(inputNumber.match(numbers)){
-			alert('Your Registration number has accepted....');
+			//alert('Your Registration number has accepted....');
+			document.getElementById("lotto_img").src = "images/lotto_s2.png";
 		}else{
 			document.getElementById("numberInput").value = "";
-			alert('Please input numeric characters only');
+			alert('ใส่เฉพาะตัวเลขนะจ๊ะ');
 		}
   	}
   	function myFunction() {
